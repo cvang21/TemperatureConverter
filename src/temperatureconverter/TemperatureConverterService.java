@@ -5,6 +5,7 @@
  */
 package temperatureconverter;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
@@ -13,19 +14,19 @@ import java.text.NumberFormat;
  */
 public class TemperatureConverterService {
     
-    NumberFormat nf = NumberFormat.getInstance();
+    DecimalFormat df = new DecimalFormat("#.00");
     public double getCelciusFromFaherenheit(double fahrenheit) throws NumberFormatException{
     return (fahrenheit - 32) * 5/9;
     
     }
     public String getCelciusFromFaherenheit(String fahrenheit) throws NumberFormatException {
-    double f = Double.valueOf(nf.format(fahrenheit));
+    double f = Double.valueOf((fahrenheit));
     double celsius = (f - 32) * 5/9;
-    return String.valueOf(celsius);
+    return String.valueOf(df.format(celsius));
     }
     
     public String getFahrenheitFromCelsius(String celsius) throws NumberFormatException {
     double fahrenheit = (Double.valueOf(celsius) * 9/5) + 32;
-    return String.valueOf(nf.format(fahrenheit));
+    return String.valueOf(df.format(fahrenheit));
     }
 }

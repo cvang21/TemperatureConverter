@@ -5,7 +5,6 @@
  */
 package temperatureconverter;
 
-import java.text.NumberFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -146,8 +145,9 @@ public class TempConv extends javax.swing.JFrame {
         try {
             if (jrbFahrenheit.isSelected()){
                 output = srv.getFahrenheitFromCelsius(input);
-            }else output = srv.getCelciusFromFaherenheit(input);
-            
+            }else {
+                output = srv.getCelciusFromFaherenheit(input);
+            }                       
         } catch (NumberFormatException e){
          JOptionPane.showMessageDialog(this, "Sorry, you must enter something valid");
          return;
